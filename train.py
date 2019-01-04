@@ -16,7 +16,7 @@ from deeplab import common
 from deeplab import model
 import dataset_info
 from deeplab.utils import input_generator
-from deeplab.utils import train_utils
+import train_utils
 from deployment import model_deploy
 from tensorflow.python.tools.inspect_checkpoint import print_tensors_in_checkpoint_file
 from pathlib import Path
@@ -65,11 +65,11 @@ flags.DEFINE_enum('learning_policy', 'poly', ['poly', 'step'], 'Learning rate po
 
 # Use 0.007 when training on PASCAL augmented training set, train_aug. When
 # fine-tuning on PASCAL trainval set, use learning rate=0.0001.
-flags.DEFINE_float('base_learning_rate', .00001, 'The base learning rate for model training.')  # change
+flags.DEFINE_float('base_learning_rate', .01, 'The base learning rate for model training.')  # change
 flags.DEFINE_float('learning_rate_decay_factor', 0.1, 'The rate to decay the base learning rate.')
 flags.DEFINE_integer('learning_rate_decay_step', 2000, 'Decay the base learning rate at a fixed step.')
 flags.DEFINE_float('learning_power', 0.9, 'The power value used in the poly learning policy.')
-flags.DEFINE_integer('training_number_of_steps', 30000, 'The number of steps used for training')
+flags.DEFINE_integer('training_number_of_steps', 1000500, 'The number of steps used for training')
 flags.DEFINE_float('momentum', 0.9, 'The momentum value to use')
 
 # When fine_tune_batch_norm=True, use at least batch size larger than 12
@@ -93,7 +93,7 @@ flags.DEFINE_float('slow_start_learning_rate', 1e-4, 'Learning rate employed dur
 
 # Set to True if one wants to fine-tune the batch norm parameters in DeepLabv3.
 # Set to False and use small batch size to save GPU memory.
-flags.DEFINE_boolean('fine_tune_batch_norm', True, 'Fine tune the batch norm parameters or not.')  # change
+flags.DEFINE_boolean('fine_tune_batch_norm', False, 'Fine tune the batch norm parameters or not.')  # change
 flags.DEFINE_float('min_scale_factor', None, 'Mininum scale factor for data augmentation.')
 flags.DEFINE_float('max_scale_factor', None, 'Maximum scale factor for data augmentation.')
 flags.DEFINE_float('scale_factor_step_size', None, 'Scale factor step size for data augmentation.')

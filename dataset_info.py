@@ -32,12 +32,12 @@ DatasetDescriptor = collections.namedtuple(
 # You are required to figure it out for your training/testing example.
 _CLOUDS_INFORMATION = DatasetDescriptor(
     splits_to_sizes={
-        'train': 42,  # num of samples in images/training  #change
-        'trainval': 1, #this equals the other 2 added
-        'val': 42,  # num of samples in images/validation #change
+        'train': 233,  # num of samples in images/training  #change
+        'trainval': 367, #this equals the other 2 added
+        'val': 101,  # num of samples in images/validation #change
     },
     num_classes=4,
-    ignore_label=0, #black?
+    ignore_label=255, #this isnt a color
 )
 
 

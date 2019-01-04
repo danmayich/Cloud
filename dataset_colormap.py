@@ -5,7 +5,7 @@ _CLOUDS = 'clouds'
 
 # Max number of entries in the colormap for each dataset.
 _DATASET_MAX_ENTRIES = {
-    _CLOUDS: 4,
+    _CLOUDS: 19,
 }
 
 
@@ -14,13 +14,28 @@ def create_clouds_label_colormap():
   Returns:
     A colormap for visualizing segmentation results.
   """
-  return np.asarray([
-      [0, 0, 0],
-      [0, 191, 255],
-      [103, 103, 103],
-      [231, 231, 231],
-  ])
 
+  return np.asarray([
+      [128, 64, 128],
+      [244, 35, 232],
+      [70, 70, 70],
+      [102, 102, 156],
+      [190, 153, 153],
+      [153, 153, 153],
+      [250, 170, 30],
+      [220, 220, 0],
+      [107, 142, 35],
+      [152, 251, 152],
+      [70, 130, 180],
+      [220, 20, 60],
+      [255, 0, 0],
+      [0, 0, 142],
+      [0, 0, 70],
+      [0, 60, 100],
+      [0, 80, 100],
+      [0, 0, 230],
+      [119, 11, 32],
+  ])
 
 def get_clouds_name():
   return _CLOUDS
