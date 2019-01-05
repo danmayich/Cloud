@@ -69,13 +69,13 @@ flags.DEFINE_float('base_learning_rate', .01, 'The base learning rate for model 
 flags.DEFINE_float('learning_rate_decay_factor', 0.1, 'The rate to decay the base learning rate.')
 flags.DEFINE_integer('learning_rate_decay_step', 2000, 'Decay the base learning rate at a fixed step.')
 flags.DEFINE_float('learning_power', 0.9, 'The power value used in the poly learning policy.')
-flags.DEFINE_integer('training_number_of_steps', 1000500, 'The number of steps used for training')
+flags.DEFINE_integer('training_number_of_steps', 500, 'The number of steps used for training')
 flags.DEFINE_float('momentum', 0.9, 'The momentum value to use')
 
 # When fine_tune_batch_norm=True, use at least batch size larger than 12
 # (batch size more than 16 is better). Otherwise, one could use smaller batch
 # size and set fine_tune_batch_norm=False.
-flags.DEFINE_integer('train_batch_size', 1, 'The number of images in each batch during training.')
+flags.DEFINE_integer('train_batch_size', 8, 'The number of images in each batch during training.')
 
 
 # For weight_decay, use 0.00004 for MobileNet-V2 or Xcpetion model variants.

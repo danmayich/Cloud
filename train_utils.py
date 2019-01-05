@@ -68,15 +68,14 @@ def add_softmax_cross_entropy_loss_for_each_scale(scales_to_logits,
 
     scaled_labels = tf.reshape(scaled_labels, shape=[-1])
 
-
-    irgore_weight = 0
+    ignore_weight = 0
     label0_weight = 1
     label1_weight = 30
     label2_weight = 60
-    not_ignore_mask = tf.to_float(tf.equal(scaled_labels, 0)) * label0_weight + tf.to_float(tf.equal(scaled_labels, 1)) * label1_weight + tf.to_float(tf.equal(scaled_labels, 2)) * label2_weight + tf.to_float(tf.equal(scaled_labels, ignore_label)) * irgore_weight
+
+    not_ignore_mask = tf.to_float(tf.equal(scaled_labels, 0)) * label0_weight + tf.to_float(tf.equal(scaled_labels, 1)) * label1_weight + tf.to_float(tf.equal(scaled_labels, 2)) * label2_weight + tf.to_float(tf.equal(scaled_labels, ignore_label)) * ignore_weight
 
     #not_ignore_mask = tf.to_float(tf.not_equal(scaled_labels,ignore_label)) * loss_weight
-
 
     one_hot_labels = slim.one_hot_encoding(scaled_labels, num_classes, on_value=1.0, off_value=0.0)
 
